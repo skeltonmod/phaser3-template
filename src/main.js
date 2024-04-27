@@ -9,15 +9,21 @@ export default new Phaser.Game({
   width: 64,
   height: 64,
   parent: "game-container",
-  backgroundColor: 0x550000,
   callbacks: {
     postBoot: (game) => {
-        game.canvas.style.width = "100%";
-        game.canvas.style.height = "100%";
-    }
+      game.canvas.style.width = "100%";
+      game.canvas.style.height = "100%";
+    },
   },
   render: {
-    pixelArt: true
+    pixelArt: true,
+  },
+  physics: {
+    default: "arcade",
+    arcade: {
+      gravity: { y: 0 },
+      debug: true,
+    },
   },
   scene: [Boot, Preloader, Game],
 });
